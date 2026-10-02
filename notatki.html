@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Planer zadań</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+
+
+
+<header>
+    <h2>Moje zadania</h2>
+</header>
+
+<nav>
+    <input type="text" id="noweZadanie" placeholder="Dodaj zadanie...">
+    <button onclick="dodajZadanie()">Dodaj</button>
+</nav>
+
+<main>
+    <ul id="lista">
+        <li>Zakupy <button onclick="wykonane(this)">Wykonane</button></li>
+        <li>Gimnastyka <button onclick="wykonane(this)">Wykonane</button></li>
+        <li>Sprzątanie <button onclick="wykonane(this)">Wykonane</button></li>
+        <li>Nauka <button onclick="wykonane(this)">Wykonane</button></li>
+        <li>Telefon <button onclick="wykonane(this)">Wykonane</button></li>
+        <li>Obiad <button onclick="wykonane(this)">Wykonane</button></li>
+    </ul>
+</main>
+
+<footer>
+    <h3> WISNIA + WORON = BRACIA</h3>
+</footer>
+
+<script>
+function wykonane(przycisk) {
+    let li = przycisk.parentElement;
+    li.style.textDecoration = "line-through";
+}
+
+function dodajZadanie() {
+    let input = document.getElementById("noweZadanie");
+    let tekst = input.value;
+
+    if(tekst !== "") {
+        let li = document.createElement("li");
+        li.innerHTML = tekst + ' <button onclick="wykonane(this)">Wykonane</button>';
+        
+        document.getElementById("lista").appendChild(li);
+        input.value = "";
+    }
+}
+</script>
+
+</body>
+</html>
